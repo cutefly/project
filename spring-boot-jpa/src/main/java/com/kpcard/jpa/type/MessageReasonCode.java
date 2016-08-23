@@ -1,0 +1,15 @@
+package com.kpcard.jpa.type;
+
+/**
+ * 사유코드
+ * @author happymoney
+ *
+ */
+public enum MessageReasonCode {
+	PHONE_TOP_UP,
+	PURCHASE_DIGITAL_ACCOUNT,
+	BILL_PAYMENT_IMMEDIATE_DELIVERY,
+	BILL_PAYMENT_REGULAR_MAIL_DELIVERY,
+	BILL_PAYMENT_EXPEDITED_MAIL_DELIVERY,
+	MERCHANDISE_RETURN
+}
