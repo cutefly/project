@@ -30,7 +30,6 @@ public class ProductDetails {
 	@Column(name = "id")
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String	id;
 
 	/**
@@ -92,7 +91,7 @@ public class ProductDetails {
 	 * 활성화 속성
 	 */
 	@OneToOne(mappedBy = "productDetails")
-	private ActivationCharacteristics	ActivationCharacteristics;
+	private ActivationCharacteristics	activationCharacteristics;
 	
 	/**
 	 * 재충전 속성

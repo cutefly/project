@@ -27,8 +27,7 @@ public class ProductSummary {
 	@Id
 	@Column(name = "id")
 	@GeneratedValue(generator = "system-uuid")
-	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GenericGenerator(name = "system-uuid", strategy = "uuid2")//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String	id;
 	
 	/**

@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.kpcard.jpa.account.AccountInformation;
 import com.kpcard.jpa.account.AccountTransaction;
-import com.kpcard.jpa.account.AccountTransaction2;
 import com.kpcard.jpa.account.AccountTransactionHistory;
 import com.kpcard.jpa.account.AccountTransactionHistoryResponse;
 import com.kpcard.jpa.type.AccountType;
@@ -29,9 +28,10 @@ public interface AccountProcessingService {
 	 * @param terminalNumber 터미널번호
 	 * @param baseTransactionId 원거래아이디
 	 * @param messageReasonCode 메세지코드
-	 * @return Account 정보
+	 * @return 트랜잭션 정보
 	 */
-	public AccountInformation createAccount(String productId, 
+	public AccountTransaction createAccount(
+			String productId, 
 			int amount, 
 			String currency, 
 			String transactionTime, 
@@ -56,7 +56,11 @@ public interface AccountProcessingService {
 	 * @param accountType 카드유형
 	 * @return 카드 아이디
 	 */
-	public String lookupAccount(String accountNumber, String productLineId, String pin, AccountType accountType);
+	public String lookupAccount(
+			String accountNumber,
+			String productLineId,
+			String pin,
+			AccountType accountType);
 	
 	/**
 	 * 카드 정보 가져오기(잔액조회가 필요하지 않은 경우)
@@ -108,7 +112,8 @@ public interface AccountProcessingService {
 	 * @param transactionDescription 거래메모
 	 * @return 상세거래정보
 	 */
-	public AccountTransactionHistoryResponse redeemValues(String[] accounts, 
+	public AccountTransactionHistoryResponse redeemValues(
+			String[] accounts, 
 			int amount, 
 			String currency, 
 			RedemptionOrder redemptionOrder,
@@ -134,7 +139,8 @@ public interface AccountProcessingService {
 	 * @param messageReasonCode 메세지코드
 	 * @return 거래정보
 	 */
-	public AccountTransaction reloadValue(String accountId,
+	public AccountTransaction reloadValue(
+			String accountId,
 			int amount,
 			String currency,
 			String productId,
@@ -154,7 +160,11 @@ public interface AccountProcessingService {
 	 * @param requestCount 조회 갯
 	 * @return 상세거래이력
 	 */
-	public AccountTransactionHistoryResponse retrieveAccountTransactionHistory(String accountId, String startDate, String endDate, int requestCount);
+	public AccountTransactionHistoryResponse retrieveAccountTransactionHistory(
+			String accountId,
+			String startDate,
+			String endDate,
+			int requestCount);
 	
 	/**
 	 * 망취소 거래
@@ -183,7 +193,8 @@ public interface AccountProcessingService {
 	 * @param baseTransactionId 원거래 아이디
 	 * @return 거래정보
 	 */
-	public AccountTransaction transferFunds(String sourceAccountId,
+	public AccountTransaction transferFunds(
+			String sourceAccountId,
 			String destinationAccountId,
 			int amount,
 			String currency,
@@ -201,7 +212,11 @@ public interface AccountProcessingService {
 	 * @param accountType Account 유형
 	 * @return 카드 정보
 	 */
-	public AccountInformation verifyAccount(String accountNumber, String productLineId, String pin, AccountType accountType);
+	public AccountInformation verifyAccount(
+			String accountNumber,
+			String productLineId,
+			String pin,
+			AccountType accountType);
 	
 	/**
 	 * 환불

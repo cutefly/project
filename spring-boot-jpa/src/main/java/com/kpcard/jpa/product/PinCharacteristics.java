@@ -15,6 +15,11 @@ import org.hibernate.annotations.GenericGenerator;
 import com.kpcard.jpa.type.Location;
 import com.kpcard.jpa.type.PinType;
 
+/**
+ * 핀 속성
+ * @author happymoney
+ *
+ */
 @Entity(name = "pin_characteristics")
 public class PinCharacteristics {
 	
@@ -22,7 +27,6 @@ public class PinCharacteristics {
 	@Column(name = "id")
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String	id;
 	
 	@Column(name = "pin_label")

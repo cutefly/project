@@ -17,7 +17,6 @@ public class LostStolenCharacteristics {
 	@Column(name = "id")
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String	id;
 	
 	@Column(name = "lost_stolen_policy_text")

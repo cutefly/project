@@ -17,7 +17,6 @@ public class ExchangeCharacteristics {
 	@Column(name = "id")
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String	id;
 	
 	@Column(name = "is_exchange_supported")

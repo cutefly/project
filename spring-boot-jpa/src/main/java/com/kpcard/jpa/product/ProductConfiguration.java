@@ -33,7 +33,6 @@ public class ProductConfiguration {
 	@Column(name = "configuration_id")
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String	configurationId;
 	
 	/**

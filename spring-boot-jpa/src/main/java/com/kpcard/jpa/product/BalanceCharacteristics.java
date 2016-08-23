@@ -11,6 +11,11 @@ import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * 잔액조회 속성
+ * @author happymoney
+ *
+ */
 @Entity(name = "balance_characteristics")
 public class BalanceCharacteristics {
 	
@@ -18,7 +23,6 @@ public class BalanceCharacteristics {
 	@Column(name = "id")
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid2")
-//	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String	id;
 	
 	@Column(name = "are_balances_transferable")
@@ -30,7 +34,7 @@ public class BalanceCharacteristics {
 	@Column(name = "hasUniversal_bi_support")
 	private Boolean	hasUniversalBISupport;
 	
-	@Column(name = "pin_requiredfor_bi")
+	@Column(name = "pin_required_for_bi")
 	private Boolean	pinRequiredforBI;
 
 	@OneToOne
