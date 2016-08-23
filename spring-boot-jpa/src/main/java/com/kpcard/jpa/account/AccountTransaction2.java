@@ -9,5 +9,4 @@ public class AccountTransaction2 {
 	int	approvedAmount;
 	TransactionStatus transactionStatus;
 	List<AccountTransaction> accountTransactionList;
-	
 }

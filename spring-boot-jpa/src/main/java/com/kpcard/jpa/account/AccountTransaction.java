@@ -13,6 +13,8 @@ import com.kpcard.jpa.type.PaymentProcessor;
 
 public class AccountTransaction {
 	private String	id;
+	private String	creatorId;
+	private String	updaterId;
 	private String	notes;
 	private Date	createdTimestamp;
 	private Date	updatedTimestamp;

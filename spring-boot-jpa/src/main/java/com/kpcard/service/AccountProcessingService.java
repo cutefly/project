@@ -6,7 +6,7 @@ import com.kpcard.jpa.account.AccountInformation;
 import com.kpcard.jpa.account.AccountTransaction;
 import com.kpcard.jpa.account.AccountTransaction2;
 import com.kpcard.jpa.account.AccountTransactionHistory;
-import com.kpcard.jpa.account.AccountTransactionHistory2;
+import com.kpcard.jpa.account.AccountTransactionHistoryResponse;
 import com.kpcard.jpa.type.AccountType;
 import com.kpcard.jpa.type.MessageReasonCode;
 import com.kpcard.jpa.type.RedemptionOrder;
@@ -108,7 +108,7 @@ public interface AccountProcessingService {
 	 * @param transactionDescription 거래메모
 	 * @return 상세거래정보
 	 */
-	public AccountTransactionHistory2 redeemValues(String[] accounts, 
+	public AccountTransactionHistoryResponse redeemValues(String[] accounts, 
 			int amount, 
 			String currency, 
 			RedemptionOrder redemptionOrder,
@@ -154,14 +154,14 @@ public interface AccountProcessingService {
 	 * @param requestCount 조회 갯
 	 * @return 상세거래이력
 	 */
-	public AccountTransactionHistory2 retrieveAccountTransactionHistory(String accountId, String startDate, String endDate, int requestCount);
+	public AccountTransactionHistoryResponse retrieveAccountTransactionHistory(String accountId, String startDate, String endDate, int requestCount);
 	
 	/**
 	 * 망취소 거래
 	 * @param reversalTxnRequestId 트랜잭션 아이디
 	 * @return 거래정보
 	 */
-	public AccountTransaction reverseAccountTransactkion(String reversalTxnRequestId);
+	public AccountTransaction reverseAccountTransaction(String reversalTxnRequestId);
 	
 	/**
 	 * 다중 망취소

@@ -35,6 +35,18 @@ public class BagDetails {
 	private String	id;
 	
 	/**
+	 * 생성자
+	 */
+	@Column(name = "creator_id")
+	private String	creatorId;
+	
+	/**
+	 * 수정자
+	 */
+	@Column(name = "updater_id")
+	private String	updaterId;
+
+	/**
 	 * 설명
 	 */
 	@Column(name = "notes")

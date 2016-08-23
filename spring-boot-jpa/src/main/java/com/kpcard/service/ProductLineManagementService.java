@@ -13,6 +13,7 @@ import com.kpcard.jpa.product.ProductLineSummary;
 public interface ProductLineManagementService {
 	
 	/**
+	 * BIN으로 상품라인 조회
 	 * @param bins BIN
 	 * @param exactMatch 매칭옵션
 	 * @param caseSensitive 대소문자구분
@@ -32,13 +33,14 @@ public interface ProductLineManagementService {
 			boolean ascending);
 	
 	/**
-	 * 브랜드로 상품 검색
+	 * 브랜드로 상품라인 검색
 	 * @param brandId 브랜드 아이디
 	 * @return 상품라인 요약정보 리스트
 	 */
 	public List<ProductLineSummary> queryProductLinesByBrand(String brandId);
 	
 	/**
+	 * 상품라인 조건 검색
 	 * @param first 시작번호
 	 * @param maximum 최대갯수
 	 * @param sortKey 정렬키
@@ -56,6 +58,7 @@ public interface ProductLineManagementService {
 			boolean caseSensitive);
 	
 	/**
+	 * 상품라인 아이디로 조회
 	 * @param productLineIds
 	 * @return 상품라인 요약정보 리스트
 	 */
@@ -89,6 +92,7 @@ public interface ProductLineManagementService {
 	public ProductLine readProductLine(String productLineId);
 	
 	/**
+	 * 상품라인 조건 검색
 	 * @param first 시작번호
 	 * @param maximum 최대갯수
 	 * @param sortKey 정렬키

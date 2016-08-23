@@ -39,8 +39,18 @@ public class ProductCatalogDetails {
 //	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String	id;
 	
-//	private User	creator;
-//	private User	updator;
+	/**
+	 * 생성자
+	 */
+	@Column(name = "creator_id")
+	private String	creatorId;
+	
+	/**
+	 * 수정자
+	 */
+	@Column(name = "updater_id")
+	private String	updaterId;
+
 
 	/**
 	 * 상품카탈로그 소개

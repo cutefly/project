@@ -86,6 +86,7 @@ public interface ProductManagementService {
 	public List<ProductSummary> queryProductsByItemId(String itemId);
 	
 	/**
+	 * 상품정보 가져오기
 	 * @param productId 상품아이디
 	 * @return 상품정
 	 */
