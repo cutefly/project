@@ -5,13 +5,15 @@ package com.kpcard.telegrambots.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.telegram.telegrambots.TelegramApiException;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingCommandBot;
 
-import com.kpcard.telegrambots.BotsConfig;
 import com.kpcard.telegrambots.commands.HelloCommand;
 import com.kpcard.telegrambots.commands.HelpCommand;
 import com.kpcard.telegrambots.commands.ShoutCommand;
@@ -26,6 +28,13 @@ public class CommandsHandler extends TelegramLongPollingCommandBot {
 
 	private static final Logger logger = LoggerFactory.getLogger(CommandsHandler.class);
 	private static final String LOGTAG = "CommandsHandler";
+/*
+	@Value("${bot.token.command}")
+	private String botToken;
+	private String botUsername;
+*/
+	@Autowired
+	private Environment env;
 
 	public CommandsHandler() {
 		// TODO Auto-generated constructor stub
@@ -42,7 +51,7 @@ public class CommandsHandler extends TelegramLongPollingCommandBot {
 	public String getBotUsername() {
 		// TODO Auto-generated method stub
 		//return BotsConfig.KPC_COMMAND_BOT_USERNAME;
-		return BotsConfig.getBotUsername("command");
+		return env.getProperty("bot.username.command");
 	}
 
 	@Override
@@ -69,8 +78,7 @@ public class CommandsHandler extends TelegramLongPollingCommandBot {
 	@Override
 	public String getBotToken() {
 		// TODO Auto-generated method stub
-		//return BotsConfig.KPC_COMMAND_BOT_TOKEN;
-		return BotsConfig.getBotToken("command");
+		return env.getProperty("bot.token.command");
 	}
 
 }

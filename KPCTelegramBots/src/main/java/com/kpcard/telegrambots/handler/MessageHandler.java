@@ -2,23 +2,25 @@ package com.kpcard.telegrambots.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.telegram.telegrambots.TelegramApiException;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
-import com.kpcard.telegrambots.BotsConfig;
-
 public class MessageHandler extends TelegramLongPollingBot {
 
 	private static final Logger logger = LoggerFactory.getLogger(MessageHandler.class);
 	private static final String LOGTAG = "MessageHandler";
 	
+	@Autowired
+	private Environment env;
+
 	public String getBotUsername() {
 		// TODO Auto-generated method stub
-		//return BotsConfig.KPC_MESSAGE_BOT_USERNAME;
-		return BotsConfig.getBotUsername("message");
+		return env.getProperty("bot.username.message");
 	}
 
 	public void onUpdateReceived(Update update) {
@@ -58,7 +60,6 @@ public class MessageHandler extends TelegramLongPollingBot {
 	@Override
 	public String getBotToken() {
 		// TODO Auto-generated method stub
-		//return BotsConfig.KPC_MESSAGE_BOT_TOKEN;
-		return BotsConfig.getBotToken("message");
+		return env.getProperty("bot.token.message");
 	}
 }
