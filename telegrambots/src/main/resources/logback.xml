@@ -6,10 +6,10 @@
         </layout>
     </appender>
     <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-	  <file>logs/telegrambots.txt</file>
+	  <file>logs/telegrambots.log</file>
 	  <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
 	    <!-- rollover daily -->
-	    <fileNamePattern>telegrambots-%d{yyyy-MM-dd}.%i.txt</fileNamePattern>
+	    <fileNamePattern>telegrambots-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
 	    <timeBasedFileNamingAndTriggeringPolicy
 	          class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
 	      <!-- or whenever the file size reaches 100MB -->
