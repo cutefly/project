@@ -6,7 +6,6 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -15,7 +14,8 @@ import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.kpcard.jpa.type.*;
+import com.kpcard.jpa.type.RedemptionMode;
+import com.kpcard.jpa.type.RedemptionOption;
 
 /**
  * 리뎀션 속성

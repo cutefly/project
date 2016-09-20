@@ -1,6 +1,7 @@
 package com.kpcard.jpa.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.Calendar;
 import java.util.List;
@@ -8,18 +9,17 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.kpcard.SpringBootJpaApplication;
 import com.kpcard.jpa.product.ProductCatalog;
 import com.kpcard.jpa.product.ProductCatalogDetails;
 import com.kpcard.jpa.product.ProductCatalogSummary;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = SpringBootJpaApplication.class)
+@SpringBootTest
+//@SpringApplicationConfiguration(classes = SpringBootJpaApplication.class)
 @WebAppConfiguration
 public class ProductCatalogDaoTest {
 
@@ -39,7 +39,7 @@ public class ProductCatalogDaoTest {
     }
 
 	@Test
-    public void createAndDelete() {
+    public void create() {
         
 		ProductCatalog	productCatalog = new ProductCatalog();
 		ProductCatalogSummary	productCatalogSummary = new ProductCatalogSummary();

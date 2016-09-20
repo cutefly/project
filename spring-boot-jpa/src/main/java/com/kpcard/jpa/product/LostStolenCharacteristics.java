@@ -28,7 +28,7 @@ public class LostStolenCharacteristics {
 	@Column(name = "is_lost_stolen_policy_automated")
 	private Boolean	isLostStolenPolicyAutomated;
 	
-	@OneToOne
-	@JoinColumn(name = "product_line_detals_id")
-	private ProductLineDetails		productLineDetails;
+//	@OneToOne
+//	@JoinColumn(name = "product_line_detals_id")
+//	private ProductLineDetails		productLineDetails;
 }

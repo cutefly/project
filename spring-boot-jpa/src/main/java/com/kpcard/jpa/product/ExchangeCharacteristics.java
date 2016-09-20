@@ -22,7 +22,7 @@ public class ExchangeCharacteristics {
 	@Column(name = "is_exchange_supported")
 	private Boolean	isExchangeSupported;
 
-	@OneToOne
-	@JoinColumn(name = "product_line_details_id")
-	private ProductLineDetails		productLineDetails;
+//	@OneToOne
+//	@JoinColumn(name = "product_line_details_id")
+//	private ProductLineDetails		productLineDetails;
 }

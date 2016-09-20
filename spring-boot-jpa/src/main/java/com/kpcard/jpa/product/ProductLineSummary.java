@@ -11,11 +11,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Data;
+
 import org.hibernate.annotations.GenericGenerator;
 
 import com.kpcard.jpa.type.AccountType;
 import com.kpcard.jpa.type.ProductLineStatus;
 
+@Data
 @Entity(name = "product_line_summary")
 public class ProductLineSummary {
 

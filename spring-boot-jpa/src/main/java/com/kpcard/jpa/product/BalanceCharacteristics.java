@@ -37,7 +37,7 @@ public class BalanceCharacteristics {
 	@Column(name = "pin_required_for_bi")
 	private Boolean	pinRequiredforBI;
 
-	@OneToOne
-	@JoinColumn(name = "product_line_details_id")
-	private ProductLineDetails		productLineDetails;
+//	@OneToOne
+//	@JoinColumn(name = "product_line_details_id")
+//	private ProductLineDetails		productLineDetails;
 }

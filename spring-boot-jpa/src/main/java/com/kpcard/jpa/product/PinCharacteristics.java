@@ -1,5 +1,6 @@
 package com.kpcard.jpa.product;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+
+import lombok.Data;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -20,6 +23,7 @@ import com.kpcard.jpa.type.PinType;
  * @author happymoney
  *
  */
+@Data
 @Entity(name = "pin_characteristics")
 public class PinCharacteristics {
 	
@@ -40,7 +44,7 @@ public class PinCharacteristics {
 	@Enumerated(EnumType.STRING)
 	private PinType	pinType;
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_line_details_id")
 	private ProductLineDetails		productLineDetails;
 }

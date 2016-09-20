@@ -30,7 +30,7 @@ public class ProductAffiliation {
 	@Enumerated(EnumType.STRING)
 	private AffiliationType	affiliationType;
 	
-	@ManyToOne
-	@JoinColumn(name = "product_line_details_id")
-	private ProductLineDetails		productLineDetails;
+//	@ManyToOne
+//	@JoinColumn(name = "product_line_details_id")
+//	private ProductLineDetails		productLineDetails;
 }
