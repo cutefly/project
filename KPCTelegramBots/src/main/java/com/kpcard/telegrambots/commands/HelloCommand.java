@@ -19,7 +19,6 @@ import org.telegram.telegrambots.bots.commands.BotCommand;
 public class HelloCommand extends BotCommand {
 
 	private static final Logger logger = LoggerFactory.getLogger(HelloCommand.class);
-    private static final String LOGTAG = "HelloCommand";
 
 	public HelloCommand() {
 		super("Hello", "Say hello to this bot");
@@ -55,7 +54,7 @@ public class HelloCommand extends BotCommand {
         try {
             absSender.sendMessage(answer);
         } catch (TelegramApiException e) {
-        	logger.error(LOGTAG, e);
+        	logger.error(e.toString());
         }
 	}
 

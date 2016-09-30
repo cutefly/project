@@ -17,7 +17,7 @@ import org.telegram.telegrambots.api.objects.User;
 import org.telegram.telegrambots.bots.AbsSender;
 import org.telegram.telegrambots.bots.commands.BotCommand;
 
-import com.kpcard.array.processor.CommandProcessor;
+import com.kpcard.telegrambots.processor.CommandProcessor;
 
 /**
  * @author happymoney
@@ -29,13 +29,12 @@ public class SwitchCommand extends BotCommand {
      * 
      */
 	private static final Logger logger = LoggerFactory.getLogger(SwitchCommand.class);
-	private static final String LOGTAG = "SwitchCommand";
 	
     private static final int MAX_MESSAGE_LENGTH = 1000;
-    
+/*    
 	@Autowired
-    private CommandProcessor processor;;
-	
+    private CommandProcessor processor;
+*/	
 
 	public SwitchCommand() {
 		super("Switch", "Execute switch command.");
@@ -58,6 +57,8 @@ public class SwitchCommand extends BotCommand {
 
         StringBuilder messageTextBuilder = new StringBuilder("");
         if (arguments != null && arguments.length > 0) {
+        	CommandProcessor processor = new CommandProcessor();
+        	
         	String executeResult = processor.executeCommand(arguments);
             messageTextBuilder.append("Executor : ").append(userName).append("\n");
             messageTextBuilder.append("Command : ").append(String.join(" ", arguments)).append("\n");
@@ -90,7 +91,7 @@ public class SwitchCommand extends BotCommand {
         	}
             absSender.sendMessage(answer);
         } catch (TelegramApiException e) {
-        	logger.error(LOGTAG, e);
+        	logger.error(e.toString());
         }
 	}
 	

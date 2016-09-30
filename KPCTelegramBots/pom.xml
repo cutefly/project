@@ -53,6 +53,15 @@
 	    	<artifactId>TelegramBots</artifactId>
 	    	<version>v2.3.5</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/ch.qos.logback.contrib/logback-mongodb-classic -->
+		<!-- 
+		 -->
+		<dependency>
+		    <groupId>ch.qos.logback.contrib</groupId>
+		    <artifactId>logback-mongodb-access</artifactId>
+		    <version>0.1.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>

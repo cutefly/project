@@ -19,7 +19,6 @@ import org.telegram.telegrambots.bots.commands.BotCommand;
 public class ShoutCommand extends BotCommand {
 
 	private static final Logger logger = LoggerFactory.getLogger(ShoutCommand.class);
-	private static final String LOGTAG = "ShoutCommand";
 
     public ShoutCommand() {
     	super("Shout", "Shout to channel");
@@ -59,7 +58,7 @@ public class ShoutCommand extends BotCommand {
         try {
             absSender.sendMessage(answer);
         } catch (TelegramApiException e) {
-        	logger.error(LOGTAG, e);
+        	logger.error(e.toString());
         }
 
 	}

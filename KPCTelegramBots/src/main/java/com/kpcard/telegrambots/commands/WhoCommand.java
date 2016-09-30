@@ -19,7 +19,6 @@ import org.telegram.telegrambots.bots.commands.BotCommand;
 public class WhoCommand extends BotCommand {
 
 	private static final Logger logger = LoggerFactory.getLogger(WhoCommand.class);
-    private static final String LOGTAG = "WhoCommand";
 
 	public WhoCommand() {
 		super("Who", "Let you know who you are.");
@@ -53,7 +52,7 @@ public class WhoCommand extends BotCommand {
         try {
             absSender.sendMessage(answer);
         } catch (TelegramApiException e) {
-        	logger.error(LOGTAG, e);
+        	logger.error(e.toString());
         }
 	}
 

@@ -20,7 +20,6 @@ import org.telegram.telegrambots.bots.commands.ICommandRegistry;
 public class HelpCommand extends BotCommand {
 
 	private static final Logger logger = LoggerFactory.getLogger(HelpCommand.class);
-    private static final String LOGTAG = "HelpCommand";
     
     private final ICommandRegistry commandRegistry;
 
@@ -52,7 +51,7 @@ public class HelpCommand extends BotCommand {
         try {
             absSender.sendMessage(helpMessage);
         } catch (TelegramApiException e) {
-        	logger.error(LOGTAG, e);
+        	logger.error(e.toString());
         }
 
 	}

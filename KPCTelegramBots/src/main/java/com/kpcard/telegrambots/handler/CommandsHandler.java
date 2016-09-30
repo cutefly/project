@@ -6,14 +6,14 @@ package com.kpcard.telegrambots.handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.TelegramApiException;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingCommandBot;
 
+import com.kpcard.telegrambots.ApplicationConfig;
 import com.kpcard.telegrambots.commands.HelloCommand;
 import com.kpcard.telegrambots.commands.HelpCommand;
 import com.kpcard.telegrambots.commands.ShoutCommand;
@@ -24,18 +24,13 @@ import com.kpcard.telegrambots.commands.WhoCommand;
  * @author happymoney
  *
  */
+@Component
 public class CommandsHandler extends TelegramLongPollingCommandBot {
 
 	private static final Logger logger = LoggerFactory.getLogger(CommandsHandler.class);
-	private static final String LOGTAG = "CommandsHandler";
-/*
-	@Value("${bot.token.command}")
-	private String botToken;
-	private String botUsername;
-*/
-	@Autowired
-	private Environment env;
 
+	@Autowired ApplicationConfig appConfig;	
+	
 	public CommandsHandler() {
 		// TODO Auto-generated constructor stub
         register(new HelloCommand());
@@ -45,13 +40,6 @@ public class CommandsHandler extends TelegramLongPollingCommandBot {
         
         HelpCommand helpCommand = new HelpCommand(this);
         register(helpCommand);
-	}
-
-	@Override
-	public String getBotUsername() {
-		// TODO Auto-generated method stub
-		//return BotsConfig.KPC_COMMAND_BOT_USERNAME;
-		return env.getProperty("bot.username.command");
 	}
 
 	@Override
@@ -69,7 +57,7 @@ public class CommandsHandler extends TelegramLongPollingCommandBot {
                 try {
                     sendMessage(echoMessage);
                 } catch (TelegramApiException e) {
-                	logger.error(LOGTAG, e);
+                	logger.error(e.toString());
                 }
             }
         }
@@ -78,7 +66,35 @@ public class CommandsHandler extends TelegramLongPollingCommandBot {
 	@Override
 	public String getBotToken() {
 		// TODO Auto-generated method stub
-		return env.getProperty("bot.token.command");
+		//return "269437500:AAEwAYpqj5H97RdJXbRfVJutzxNvNxwyGMo";
+//		
+		String token;
+		
+		if ( appConfig != null ) {
+			logger.debug("command bot token : {}", appConfig.getCommandBotsToken());
+			token = appConfig.getCommandBotsToken();
+		} else {
+			token = "269437500:AAEwAYpqj5H97RdJXbRfVJutzxNvNxwyGMo";
+		}
+		
+		return token;
+	}
+
+	@Override
+	public String getBotUsername() {
+		// TODO Auto-generated method stub
+		//return "kpc_test_command_bot";
+//		
+		String username;
+		
+		if ( appConfig != null ) {
+			logger.debug("command bot username : {}", appConfig.getCommandBotsUsername());
+			username = appConfig.getCommandBotsUsername();
+		} else {
+			username = "kpc_test_command_bot";
+		}
+		
+		return username;
 	}
 
 }

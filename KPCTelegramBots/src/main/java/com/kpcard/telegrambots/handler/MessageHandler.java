@@ -3,26 +3,22 @@ package com.kpcard.telegrambots.handler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.TelegramApiException;
 import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
+import com.kpcard.telegrambots.ApplicationConfig;
+
+@Component
 public class MessageHandler extends TelegramLongPollingBot {
 
 	private static final Logger logger = LoggerFactory.getLogger(MessageHandler.class);
-	private static final String LOGTAG = "MessageHandler";
 	
-	@Autowired
-	private Environment env;
-
-	public String getBotUsername() {
-		// TODO Auto-generated method stub
-		return env.getProperty("bot.username.message");
-	}
-
+	@Autowired ApplicationConfig appConfig;
+	
 	public void onUpdateReceived(Update update) {
 		// TODO Auto-generated method stub
 		Integer		id;
@@ -52,7 +48,7 @@ public class MessageHandler extends TelegramLongPollingBot {
 			logger.debug(recvNessage.toString());
 		} catch (TelegramApiException e) {
 			// TODO Auto-generated catch block
-			logger.error(LOGTAG, e.toString());
+			logger.error(e.toString());
 		}
 
 	}
@@ -60,6 +56,33 @@ public class MessageHandler extends TelegramLongPollingBot {
 	@Override
 	public String getBotToken() {
 		// TODO Auto-generated method stub
-		return env.getProperty("bot.token.message");
+		//return "260464236:AAHNWWCkMqkYott-ebTSqAF-VsWtjid8RAw";
+		String token;
+		
+		if ( appConfig != null ) {
+			logger.debug("message bot username : {}", appConfig.getMessageBotsToken());
+			token = appConfig.getMessageBotsToken();
+		} else {
+			token = "260464236:AAHNWWCkMqkYott-ebTSqAF-VsWtjid8RAw";
+		}
+		
+		return token;
 	}
+
+	@Override
+	public String getBotUsername() {
+		// TODO Auto-generated method stub
+		//return "kpc_test_message_bot";
+		String username;
+		
+		if ( appConfig != null ) {
+			logger.info("message bot username : {}", appConfig.getMessageBotsUsername());
+			username = appConfig.getMessageBotsUsername();
+		} else {
+			username = "kpc_test_message_bot";
+		}
+		
+		return username;
+	}
+
 }

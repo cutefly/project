@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.kpcard.array.processor;
+package com.kpcard.telegrambots.processor;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,6 +32,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.Bean;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -43,10 +44,10 @@ import org.xml.sax.SAXException;
  * @author happymoney
  *
  */
+
 public class CommandProcessor {
 	
 	private static final Logger logger = LoggerFactory.getLogger(CommandProcessor.class);
-    private static final String LOGTAG = "SwitchProcessor";
     
 	private String	remoteURL = "http://61.251.167.9:8080/cgi-bin/xmlrpc_server";
 	private String	methodName = "arrayos_cli_config";
@@ -76,7 +77,7 @@ public class CommandProcessor {
 			result = parseResponse(response);
 	        logger.info("Response result : " + result);
 		} catch (Exception e) {
-			logger.error(LOGTAG, e);
+			logger.error(e.toString());
 			result = "Error on execute.";
         }
 
